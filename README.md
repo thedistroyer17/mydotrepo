@@ -6,7 +6,7 @@ Welcome to mydotrepo! This repository contains my personal dotfiles for customiz
 
  --> Before using these dotfiles, ensure that you have [Git](https://git-scm.com) installed on your system.
  --> i3wm window manager should be installed.
- --> dotfiles will work well on arch and arch-based linux distros .....(not shure about debian and others)
+ --> dotfiles will work well on arch and arch-based linux distros .....(not sure about debian and others)
 
 
 ## Installation
