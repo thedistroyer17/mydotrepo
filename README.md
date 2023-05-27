@@ -17,21 +17,23 @@ To install and configure the dotfiles on your system, follow these steps:
 
    ```bash
    git clone --bare https://github.com/thedistroyer17/mydotrepo.git $HOME/.mydotrepo
+   ```
 
 2. Define an alias called 'dotfiles' to interact with the bare repository:
-  
-  ```bash
-  alias dotfiles='/usr/bin/git --git-dir=$HOME/.mydotrepo/ --work-tree=$HOME'
-  ```
 
-Note: You may want to add this alias to your shell profile (e.g., .bashrc or .zshrc) for persistence.
+   
+   ```bash
+    alias dotfiles='/usr/bin/git --git-dir=$HOME/.mydotrepo/ --work-tree=$HOME'
+    ```
+
+    Note: You may want to add this alias to your shell profile (e.g., .bashrc or .zshrc) for persistence.
 
 3. Checkout the dotfiles:
   
-  ```bash
-  dotfiles checkout
-  ```
-  If you encounter conflicts , backup and remove the conflicting  files and rerun the checkout command.
+    ```bash
+     dotfiles checkout
+    ```
+     If you encounter conflicts , backup and remove the conflicting  files and rerun the checkout command.
 
 4. Customize 
   Feel free to customize  any of the dotfiles to suit your needs. You can modify the configurations or add new ones according to your preferences. 
