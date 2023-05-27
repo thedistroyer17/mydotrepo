@@ -56,9 +56,9 @@ new_window pixel 2
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
+gaps inner 2
 gaps outer 3
-smart_gaps on
+smart_gaps off
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -349,10 +349,10 @@ for_window [class=TelegramDesktop] focus
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
 # start using default config 
-exec_always --no-startup-id picom -b
+#exec_always --no-startup-id picom -b
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -458,7 +458,7 @@ for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
 # set border of floating window
-for_window [class="urxvt"] border pixel 1
+for_window [class="urxvt"] border pixel 2
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
@@ -483,10 +483,11 @@ set $darkgrey		#383c4a
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
-
+set $pink         #fc03be  
+set $cat          #1e1e2e
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$purple  	$darkblue	$white		$mediumgrey   	$mediumgrey
+client.focused		    	$white	$darkblue	$white		$white	$white
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
@@ -596,7 +597,7 @@ bar {
 	font pango: FiraCode Nerd Font SemiBold 10
 	position top
 	#i3bar_command i3bar --transparency
-        height 25
+        height 24
 	colors {
 		background #1e1e2e
 		statusline #F8F8F2
