@@ -483,11 +483,15 @@ set $darkgrey		#383c4a
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
-set $pink         #fc03be  
-set $cat          #1e1e2e
+set $pink               #fc03be  
+set $cat                #1e1e2e
+set $creamybeige        #f2e9df
+set $mutedcoral		#d8a7a3
+set $softmocha		#baafa7
+set $dustyrose 		#c59f9b
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$white	$darkblue	$white		$white	$white
+client.focused		    	$grey	  	$darkblue	$grey		$grey	        $grey
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
