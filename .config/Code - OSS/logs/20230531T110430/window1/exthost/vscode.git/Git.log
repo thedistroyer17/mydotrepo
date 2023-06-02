@@ -1,0 +1,16 @@
+2023-05-31 11:04:47.266 [info] Log level: Info
+2023-05-31 11:04:47.266 [info] Validating found git in: "git"
+2023-05-31 11:04:47.266 [info] Using git "2.40.1" from "git"
+2023-05-31 11:04:47.266 [info] > git rev-parse --show-toplevel [38ms]
+2023-05-31 11:04:47.266 [info] > git rev-parse --git-dir --git-common-dir [17ms]
+2023-05-31 11:04:47.266 [info] Open repository: /home/darkxx/login-page-gym-web
+2023-05-31 11:04:47.266 [info] > git config --get commit.template [136ms]
+2023-05-31 11:04:47.266 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [398ms]
+2023-05-31 11:04:47.266 [info] > git status -z -uall [77ms]
+2023-05-31 11:04:47.266 [info] > git config --get commit.template [10ms]
+2023-05-31 11:04:47.266 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2023-05-31 11:04:47.266 [info] > git status -z -uall [18ms]
+2023-05-31 11:04:47.266 [info] > git check-ignore -v -z --stdin [19ms]
+2023-05-31 11:05:53.984 [info] > git show --textconv :index.html [54ms]
+2023-05-31 11:05:54.013 [info] > git ls-files --stage -- /home/darkxx/login-page-gym-web/index.html [30ms]
+2023-05-31 11:05:54.090 [info] > git cat-file -s ad65d21aceeb63b91b2de9d5ed92e436fc844b22 [12ms]

@@ -1,0 +1,13 @@
+2023-05-31 11:03:24.469 [info] Log level: Info
+2023-05-31 11:03:24.469 [info] Validating found git in: "git"
+2023-05-31 11:03:24.469 [info] Using git "2.40.1" from "git"
+2023-05-31 11:03:24.469 [info] > git rev-parse --show-toplevel [17ms]
+2023-05-31 11:03:24.469 [info] > git rev-parse --git-dir --git-common-dir [18ms]
+2023-05-31 11:03:24.469 [info] Open repository: /home/darkxx/login-page-gym-web
+2023-05-31 11:03:24.469 [info] > git config --get commit.template [21ms]
+2023-05-31 11:03:24.469 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [12ms]
+2023-05-31 11:03:24.469 [info] > git status -z -uall [41ms]
+2023-05-31 11:03:24.469 [info] > git check-ignore -v -z --stdin [9ms]
+2023-05-31 11:03:28.459 [info] > git show --textconv :index.html [29ms]
+2023-05-31 11:03:28.468 [info] > git ls-files --stage -- /home/darkxx/login-page-gym-web/index.html [9ms]
+2023-05-31 11:03:28.499 [info] > git cat-file -s ad65d21aceeb63b91b2de9d5ed92e436fc844b22 [12ms]

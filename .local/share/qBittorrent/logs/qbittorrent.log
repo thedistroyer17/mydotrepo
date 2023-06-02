@@ -1,0 +1,36 @@
+(N) 2023-05-31T13:00:23 - qBittorrent v4.5.3 started
+(N) 2023-05-31T13:00:23 - Using config directory: /home/darkxx/.config/qBittorrent
+(N) 2023-05-31T13:00:24 - Trying to listen on the following list of IP addresses: "0.0.0.0:29092,[::]:29092"
+(I) 2023-05-31T13:00:24 - Peer ID: "-qB4530-"
+(I) 2023-05-31T13:00:24 - HTTP User-Agent: "qBittorrent/4.5.3"
+(I) 2023-05-31T13:00:24 - Distributed Hash Table (DHT) support: ON
+(I) 2023-05-31T13:00:24 - Local Peer Discovery support: ON
+(I) 2023-05-31T13:00:24 - Peer Exchange (PeX) support: ON
+(I) 2023-05-31T13:00:24 - Anonymous mode: OFF
+(I) 2023-05-31T13:00:24 - Encryption support: ON
+(I) 2023-05-31T13:00:24 - UPnP/NAT-PMP support: ON
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "192.168.1.36". Port: "TCP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "192.168.1.36". Port: "UTP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "::1". Port: "TCP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "::1". Port: "UTP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "fe80::369e:5887:7103:5d59%wlan0". Port: "TCP/29092"
+(I) 2023-05-31T13:00:24 - Successfully listening on IP. IP: "fe80::369e:5887:7103:5d59%wlan0". Port: "UTP/29092"
+(W) 2023-05-31T13:00:25 - Couldn't load IP geolocation database. Reason: No such file or directory
+(I) 2023-05-31T13:00:25 - Detected external IP. IP: "103.164.211.157"
+(I) 2023-05-31T13:00:25 - IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Sun Apr 30 20:23:20 2023.
+(I) 2023-05-31T13:00:26 - Successfully updated IP geolocation database.
+(N) 2023-05-31T13:00:36 - Added new torrent. Torrent: "xerolinux-2023.05-x86_64.iso"
+(W) 2023-05-31T13:00:36 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://kaz.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://kaz.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:36 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://ignum.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://ignum.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:37 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://softlayer-ams.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://softlayer-ams.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:37 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://switch.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://switch.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:38 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://optimate.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://optimate.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:39 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://sunet.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://sunet.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:40 - URL seed DNS lookup failed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "https://kent.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso". Error: "xerolinux-2023.05-x86_64.iso url seed (https://kent.dl.sourceforge.net/project/xerolinux/Releases/Main/xerolinux-2023.05-x86_64.iso) failed: Host not found (authoritative)"
+(W) 2023-05-31T13:00:46 - Received error message from URL seed. Torrent: "xerolinux-2023.05-x86_64.iso". URL: "http://mirror.funami.tech/xerolinux/iso/xerolinux-2023.05-x86_64.iso". Message: "404 Not Found"
+(N) 2023-05-31T13:01:28 - Removed torrent and deleted its content. Torrent: "xerolinux-2023.05-x86_64.iso"
+(W) 2023-05-31T13:03:00 - UPnP/NAT-PMP port mapping failed. Message: "could not map port using UPnP[192.168.1.36]: no router found"
+(W) 2023-05-31T13:03:00 - UPnP/NAT-PMP port mapping failed. Message: "could not map port using UPnP[192.168.1.36]: no router found"
+(C) 2023-05-31T13:42:31 - qBittorrent was just updated and needs to be restarted for the changes to be effective.

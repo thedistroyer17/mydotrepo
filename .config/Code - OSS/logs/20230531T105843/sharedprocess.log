@@ -1,0 +1,29 @@
+2023-05-31 10:58:56.548 [warning] No ptyHost heartbeat after 6 seconds
+2023-05-31 10:59:09.100 [info] Getting Manifest... mikastiv.ocean-space-refined
+2023-05-31 10:59:09.420 [info] Installing extension: mikastiv.ocean-space-refined
+2023-05-31 10:59:13.718 [info] Extension signature verification is not done: mikastiv.ocean-space-refined
+2023-05-31 10:59:13.956 [info] Extracted extension to /home/darkxx/.vscode-oss/extensions/.1bb59fce-d84e-444b-9820-5429330c3107: mikastiv.ocean-space-refined
+2023-05-31 10:59:13.977 [info] Renamed to /home/darkxx/.vscode-oss/extensions/mikastiv.ocean-space-refined-3.0.2-universal
+2023-05-31 10:59:13.986 [info] Extracting extension completed. mikastiv.ocean-space-refined
+2023-05-31 10:59:14.012 [info] Extension installed successfully: mikastiv.ocean-space-refined
+2023-05-31 10:59:50.471 [info] Getting Manifest... equinusocio.vsc-material-theme
+2023-05-31 10:59:51.329 [info] Installing extension: equinusocio.vsc-material-theme
+2023-05-31 10:59:52.145 [info] Getting Manifest... equinusocio.vsc-community-material-theme
+2023-05-31 10:59:52.951 [info] Getting Manifest... equinusocio.vsc-material-theme-icons
+2023-05-31 10:59:54.259 [info] Installing extension: equinusocio.vsc-community-material-theme equinusocio.vsc-material-theme
+2023-05-31 10:59:54.259 [info] Installing extension: equinusocio.vsc-material-theme-icons equinusocio.vsc-material-theme
+2023-05-31 10:59:57.559 [info] Extension signature verification is not done: equinusocio.vsc-community-material-theme
+2023-05-31 10:59:57.718 [info] Extracted extension to /home/darkxx/.vscode-oss/extensions/.23efada9-2ac4-437a-a7d5-5417a7334a5a: equinusocio.vsc-community-material-theme
+2023-05-31 10:59:57.734 [info] Renamed to /home/darkxx/.vscode-oss/extensions/equinusocio.vsc-community-material-theme-1.4.6-universal
+2023-05-31 10:59:57.739 [info] Extracting extension completed. equinusocio.vsc-community-material-theme
+2023-05-31 11:00:13.694 [info] Extension signature verification is not done: equinusocio.vsc-material-theme-icons
+2023-05-31 11:00:24.702 [info] Extracted extension to /home/darkxx/.vscode-oss/extensions/.d298f8bf-f455-45e3-94fb-384751d145ae: equinusocio.vsc-material-theme-icons
+2023-05-31 11:00:24.719 [info] Renamed to /home/darkxx/.vscode-oss/extensions/equinusocio.vsc-material-theme-icons-2.7.5-universal
+2023-05-31 11:00:24.724 [info] Extracting extension completed. equinusocio.vsc-material-theme-icons
+2023-05-31 11:00:28.361 [info] Extension signature verification is not done: equinusocio.vsc-material-theme
+2023-05-31 11:00:28.569 [info] Extracted extension to /home/darkxx/.vscode-oss/extensions/.6b303e52-234c-4dbf-93ea-a58dfe8bc820: equinusocio.vsc-material-theme
+2023-05-31 11:00:28.588 [info] Renamed to /home/darkxx/.vscode-oss/extensions/equinusocio.vsc-material-theme-33.8.0-universal
+2023-05-31 11:00:28.592 [info] Extracting extension completed. equinusocio.vsc-material-theme
+2023-05-31 11:00:28.622 [info] Extension installed successfully: equinusocio.vsc-community-material-theme
+2023-05-31 11:00:28.622 [info] Extension installed successfully: equinusocio.vsc-material-theme-icons
+2023-05-31 11:00:28.623 [info] Extension installed successfully: equinusocio.vsc-material-theme

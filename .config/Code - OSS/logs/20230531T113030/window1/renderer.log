@@ -1,0 +1,3 @@
+2023-05-31 11:30:44.361 [info] [perf] Render performance baseline is 75ms
+2023-05-31 11:30:48.322 [warning] [backup tracker] suspended, ignoring dirty change event file:///home/darkxx/login-page-gym-web/index.html 
+2023-05-31 11:30:56.349 [info] [perf] Render performance baseline is 183ms
