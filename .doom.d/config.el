@@ -76,4 +76,3 @@
 ;; they are implemented.
 ;;
 ;;setting the catpuccin theme
-(setq doom-font (font-spec :family "Jetbrains Mono" : size 12 :weight 'regular))
