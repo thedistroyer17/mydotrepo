@@ -1,9 +1,0 @@
-🔴 Preview server running at 2200 port
-Local: http://localhost:2200/paths
-[12:34:47 PM] /index.html
-✅ 'Client connected'
-⌛ Waiting for file change...
-[12:35:04 PM] /backend.php 404 error
-[12:35:09 PM] /backend.php 404 error
-Live Server Stopping...
-Live Server Stopped

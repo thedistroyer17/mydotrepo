@@ -1,3 +1,0 @@
-2023-05-31 10:59:02.135 [info] [perf] Render performance baseline is 157ms
-2023-05-31 11:00:53.576 [warning] Settings pattern "security.*" doesn't match any settings
-2023-05-31 11:00:53.578 [warning] SettingsEditor2: Settings not included in settingsLayout.ts: interactiveEditor.editMode, accessibility.verbosity.diff-editor, accessibility.verbosity.terminal
