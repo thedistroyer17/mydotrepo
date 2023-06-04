@@ -192,3 +192,6 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;;setting font for doom emacs
+(setq doom-font (font-spec : family "JetBrains Mono Nerd Semibold Font" :size:12))
