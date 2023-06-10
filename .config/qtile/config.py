@@ -1,14 +1,27 @@
-########qtile######
+ #######  ######## #### ##       ########     ######   #######  ##    ## ######## ####  ######   
+##     ##    ##     ##  ##       ##          ##    ## ##     ## ###   ## ##        ##  ##    ##  
+##     ##    ##     ##  ##       ##          ##       ##     ## ####  ## ##        ##  ##        
+##     ##    ##     ##  ##       ######      ##       ##     ## ## ## ## ######    ##  ##   #### 
+##  ## ##    ##     ##  ##       ##          ##       ##     ## ##  #### ##        ##  ##    ##  
+##    ##     ##     ##  ##       ##          ##    ## ##     ## ##   ### ##        ##  ##    ##  
+ ##### ##    ##    #### ######## ########     ######   #######  ##    ## ##       ####  ######   
 
 ## imports ##
 import subprocess
-from libqtile import bar, layout, widget , TextBox
+from libqtile import bar, layout, widget 
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from battery_widget import BatteryWidget
 
 mod = "mod4"
 terminal = guess_terminal()
+
+# running dmenu
+#  def spawn(cmd):
+    #  qtile.cmd_spawn("dmenu_run -p 'Run:' -nb '#1a1a1a' -nf '#dcdccc' -sb '#8f8f8f' -sf '#dcdccc' -fn 'Monospace-14'")  # Replace with your preferred dmenu command
+
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -46,9 +59,10 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod], "x", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # Key([mod], "d", lazy.spawn, args=[None], desc="Launch dmenu"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -81,12 +95,12 @@ layouts = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+    #layout.Stack(num_stacks=2 , border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
     # layout.MonadWide(),
-    layout.RatioTile(border_color="#fc05ec",border_width=2),
+    #layout.RatioTile(border_focus="#fc05ec", border_normal="#9e8d9d",border_width=2),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
@@ -120,7 +134,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Net(interface="wlan0"),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                BatteryWidget(),
                 widget.Systray(),
             ],
             24,
