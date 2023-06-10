@@ -12,10 +12,11 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from battery_widget import BatteryWidget
+from battery_widget import BatteryWidget 
+from libqtile.widget import CPUGraph
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 # running dmenu
 #  def spawn(cmd):
@@ -65,31 +66,31 @@ keys = [
     # Key([mod], "d", lazy.spawn, args=[None], desc="Launch dmenu"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = []
 
+group_names = ["1", "2", "3", "4", "5", "6",]
+group_labels = ["TERM", "WWW", "SYS", "DEV", "FILE", "GFX",]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
 for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-        ]
-    )
+    keys.extend([
+        Key([mod], i.name, lazy.group[i.name].toscreen()),
+        Key([mod], "Tab", lazy.screen.next_group()),
+        Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
+        Key(["mod1"], "Tab", lazy.screen.next_group()),
+        Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
+
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+    ])
+
 
 layouts = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
@@ -98,7 +99,7 @@ layouts = [
     #layout.Stack(num_stacks=2 , border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
+    layout.MonadTall(border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2, margin=7),
     # layout.MonadWide(),
     #layout.RatioTile(border_focus="#fc05ec", border_normal="#9e8d9d",border_width=2),
     # layout.Tile(),
@@ -114,13 +115,24 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# Create a TextBox widget as a separator
+separator_widget = widget.TextBox(
+    text="|",
+    fontsize=14,
+    padding=5,
+    foreground="888888",
+    background="#1e1e2e"
+)
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(),
+                separator_widget,
                 widget.Prompt(),
+                separator_widget,
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -132,15 +144,23 @@ screens = [
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
+                separator_widget,
+                separator_widget,
                 widget.Net(interface="wlan0"),
+                separator_widget,
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                separator_widget,
+                CPUGraph(),
+                separator_widget,
                 BatteryWidget(),
+                separator_widget,
                 widget.Systray(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
+            background="#1e1e2e"
+        ) 
     ),
 ]
 

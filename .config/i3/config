@@ -491,7 +491,7 @@ set $softmocha		#baafa7
 set $dustyrose 		#c59f9b
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$grey	  	$darkblue	$grey		$grey	        $grey
+client.focused		    	$pink	  	$darkblue	$pink		$pink	        $pink
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
