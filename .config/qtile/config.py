@@ -28,32 +28,16 @@ terminal = "kitty"
 # def spawn_dmenu(cmd):
 #       qtile.cmd_spawn("dmenu_run -p 'Run:' -nb '#1a1a1a' -nf '#dcdccc' -sb '#8f8f8f' -sf '#dcdccc' -fn 'Monospace-14'")  # Replace with your preferred dmenu command
 
-# brigtness control
+# definiton of brigness control
 
 
-# @hook.subscribe.startup_once
-# def autostart():
-#     # Set initial brightness level here if needed
-#     pass
+@hook.subscribe.startup_once
+def autostart():
+    # ... (other autostart programs)
 
-
-# def change_brightness(delta):
-#     current_brightness = int(
-#         float(subprocess.check_output(["xbacklight", "-get"])))
-#     new_brightness = max(current_brightness + delta, 0)
-#     subprocess.Popen(["xbacklight", "-set", str(new_brightness)])
-
-
-# def increase_brightness(qtile):
-#     change_brightness(10)
-
-
-# def decrease_brightness(qtile):
-#     change_brightness(-10)
-
-
-# def toggle_brightness(qtile):
-#     subprocess.Popen(["xbacklight", "-toggle"])
+    # Set the initial brightness level
+    brightnessctl_cmd = "brightnessctl s 50%"  # Adjust the value as needed
+    subprocess.Popen(brightnessctl_cmd.split())
 
 
 # picom setup
@@ -105,8 +89,14 @@ keys = [
     Key([mod], "x", lazy.shutdown(), desc="Shutdown Qtile"),
     # Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawn("dmenu_run"), desc="launch dmenu"),
-    # Key([mod], "XF86MonBrightnessUp", lazy.function(increase_brightness)),
-    # Key([mod], "XF86MonBrightnessDown", lazy.function(decrease_brightness)),
+    # Adjust brightness up
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+
+    # Adjust brightness down
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    # reboot
+    Key([mod], "z", lazy.spawn("reboot"),
+        desc="rebooting the system instantly"),
 
 ]
 
@@ -114,7 +104,7 @@ keys = [
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6",]
-group_labels = ["TERM", "WWW", "SYS", "DEV", "FILE", "GFX",]
+group_labels = ["Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ ", "Ⅴ", "Ⅵ ",]
 group_layouts = ["monadtall", "monadtall", "monadtall",
                  "monadtall", "monadtall", "monadtall",]
 
@@ -157,9 +147,9 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="JetBrains Mono",
     fontsize=12,
-    padding=3,
+    padding=1,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -176,7 +166,10 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                # widget.CurrentLayout(),
+                widget.Image(
+                    filename="/home/darkxx/custom_walls/ifinity.png",
+                    scale=True
+                ),
                 widget.GroupBox(),
                 separator_widget,
                 widget.Prompt(),
@@ -196,12 +189,15 @@ screens = [
                 separator_widget,
                 widget.Net(interface="wlan0"),
                 separator_widget,
-                widget.Clock(format="%H:%M %p"),
+                # DiskUsage(),
                 separator_widget,
                 CPUGraph(),
                 separator_widget,
                 BatteryWidget(),
                 separator_widget,
+                widget.Clock(format="%H:%M %p"),
+                # widget.CurrentLayout(),
+                # separator_widget,
                 widget.Systray(),
             ],
             24,

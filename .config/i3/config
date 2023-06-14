@@ -278,7 +278,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+#bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
@@ -491,7 +491,7 @@ set $softmocha		#baafa7
 set $dustyrose 		#c59f9b
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$pink	  	$darkblue	$pink		$pink	        $pink
+client.focused		    	$grey  	$darkblue	$grey		$grey	        $grey
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown

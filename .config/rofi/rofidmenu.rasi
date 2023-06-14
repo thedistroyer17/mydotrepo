@@ -44,8 +44,8 @@ textbox {
 }
 listview {
     fixed-height: 0;
-    border:       8px 0px 0px;
-    border-color: #fc03be;
+    border:       1px 0px 0px;
+    border-color: @background;
     spacing:      8px;
     scrollbar:    false;
     padding:      2px 0px 0px;
