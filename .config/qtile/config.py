@@ -13,13 +13,14 @@
 
 ## imports ##
 import os
+import psutil
 import subprocess
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from battery_widget import BatteryWidget
-from libqtile.widget import CPUGraph
+from libqtile.widget import CPUGraph , Volume 
 
 mod = "mod4"
 terminal = "kitty"
@@ -39,9 +40,47 @@ def autostart():
     brightnessctl_cmd = "brightnessctl s 50%"  # Adjust the value as needed
     subprocess.Popen(brightnessctl_cmd.split())
 
+# wifi status function 
+#if the wifi is connected we will get a wifi symbol 
 
+def get_wifi_status():
+    wifi_symbol = ""  # Use a Wi-Fi symbol of your choice
+    interface = "wlan0"  # Replace with your Wi-Fi interface name
+
+    # Check if the interface is connected to a network
+    with open(f"/sys/class/net/{interface}/operstate", "r") as f:
+        if f.read().strip() == "up":
+            return wifi_symbol
+        else:
+            return ""
+
+# battery status function 
+
+def get_battery_status():
+    battery = psutil.sensors_battery()
+
+    # Check if the battery is present and not on AC power
+    if battery and not battery.power_plugged:
+        battery_percentage = battery.percent
+
+        # Define emojis based on battery percentage ranges
+        if battery_percentage < 20 :
+            emoji = ""
+        if battery_percentage < 45 :
+            emoji = ""
+        if battery_percentage < 70 :
+            emoji = ""
+        if battery_percentage < 95 :
+            emoji = ""
+        else :
+            emoji = ""
+
+        return f"{emoji} {int(battery_percentage)}%"
+    else:
+        return ""
 # picom setup
 os.system("picom --config ~/.config/picom/picom.conf &")
+#  volume controls 
 
 
 keys = [
@@ -186,21 +225,27 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 separator_widget,
+                widget.PulseVolume(),
                 separator_widget,
+                widget.TextBox(text=get_wifi_status()),
                 widget.Net(interface="wlan0"),
                 separator_widget,
+                # Volume(
+                    # emoji=True,
+                    # margin=5,
+                # ),
                 # DiskUsage(),
                 separator_widget,
                 CPUGraph(),
                 separator_widget,
-                BatteryWidget(),
+                widget.TextBox(text=get_battery_status()),
                 separator_widget,
                 widget.Clock(format="%H:%M %p"),
                 # widget.CurrentLayout(),
                 # separator_widget,
                 widget.Systray(),
             ],
-            24,
+            22,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
             background="#1e1e2e"

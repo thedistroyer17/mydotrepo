@@ -14,6 +14,7 @@ end
 set fish_greeting
 
 figlet -f new "#darkxx"
+#echo "i use arch btw!!! >_<"
 
 
 starship init fish | source
