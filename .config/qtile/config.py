@@ -20,18 +20,16 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from battery_widget import BatteryWidget
-from libqtile.widget import CPUGraph , Volume 
+from libqtile.widget import CPUGraph , Volume , base , TextBox
 
 mod = "mod4"
-terminal = "kitty"
+terminal = "xfce4-terminal"
 
 # running dmenu
 # def spawn_dmenu(cmd):
 #       qtile.cmd_spawn("dmenu_run -p 'Run:' -nb '#1a1a1a' -nf '#dcdccc' -sb '#8f8f8f' -sf '#dcdccc' -fn 'Monospace-14'")  # Replace with your preferred dmenu command
 
 # definiton of brigness control
-
-
 @hook.subscribe.startup_once
 def autostart():
     # ... (other autostart programs)
@@ -55,29 +53,16 @@ def get_wifi_status():
             return ""
 
 # battery status function 
+#including the external battery script 
+class ExternalScriptWidget(TextBox):
+    def __init__(self, script_path, **config):
+        super().__init__(**config)
+        self.script_path = script_path
 
-def get_battery_status():
-    battery = psutil.sensors_battery()
+    def poll(self):
+        return subprocess.check_output([self.script_path]).decode("utf-8").strip()
 
-    # Check if the battery is present and not on AC power
-    if battery and not battery.power_plugged:
-        battery_percentage = battery.percent
 
-        # Define emojis based on battery percentage ranges
-        if battery_percentage < 20 :
-            emoji = ""
-        if battery_percentage < 45 :
-            emoji = ""
-        if battery_percentage < 70 :
-            emoji = ""
-        if battery_percentage < 95 :
-            emoji = ""
-        else :
-            emoji = ""
-
-        return f"{emoji} {int(battery_percentage)}%"
-    else:
-        return ""
 # picom setup
 os.system("picom --config ~/.config/picom/picom.conf &")
 #  volume controls 
@@ -136,6 +121,8 @@ keys = [
     # reboot
     Key([mod], "z", lazy.spawn("reboot"),
         desc="rebooting the system instantly"),
+    # running the monitor screen layout scripts 
+    Key([mod, "shift"], "s", lazy.spawn("bash /home/darkxx/.screenlayout/monitor.sh")),
 
 ]
 
@@ -169,17 +156,17 @@ for i in groups:
 
 
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    # layout.Max(),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2 , border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
     # layout.Bsp(),
-    # layout.Matrix(),
+    layout.Matrix(),
     layout.MonadTall(border_focus="#fc05ec",
                      border_normal="#9e8d9d", border_width=2, margin=7),
     # layout.MonadWide(),
     # layout.RatioTile(border_focus="#fc05ec", border_normal="#9e8d9d",border_width=2),
-    # layout.Tile(),
+    layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -200,6 +187,20 @@ separator_widget = widget.TextBox(
     foreground="#ffc0cb",
     background="#1e1e2e"
 )
+sep3 = widget.TextBox(
+    text="--]",
+    fontsize=14,
+    padding=5,
+    foreground="#ffc0cb",
+    background="#1e1e2e"
+)
+sep2 = widget.TextBox(
+    text="[--",
+    fontsize=14,
+    padding=5,
+    foreground="#ffc0cb",
+    background="#1e1e2e"
+)
 
 screens = [
     Screen(
@@ -213,6 +214,7 @@ screens = [
                 separator_widget,
                 widget.Prompt(),
                 separator_widget,
+                sep2,                                             
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -224,25 +226,23 @@ screens = [
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
+                 sep3,
                 separator_widget,
                 widget.PulseVolume(),
                 separator_widget,
                 widget.TextBox(text=get_wifi_status()),
                 widget.Net(interface="wlan0"),
                 separator_widget,
-                # Volume(
-                    # emoji=True,
-                    # margin=5,
-                # ),
                 # DiskUsage(),
                 separator_widget,
                 CPUGraph(),
                 separator_widget,
-                widget.TextBox(text=get_battery_status()),
+                ExternalScriptWidget(script_path="~/..config/i3/scripts/battery1"),
                 separator_widget,
                 widget.Clock(format="%H:%M %p"),
-                # widget.CurrentLayout(),
-                # separator_widget,
+                separator_widget,
+                widget.CurrentLayout(),
+                separator_widget,
                 widget.Systray(),
             ],
             22,
