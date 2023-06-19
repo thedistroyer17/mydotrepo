@@ -175,7 +175,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -595,28 +595,31 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 ##custom shortcuts#########
 bindsym $mod+x exec "i3-msg exit"
 bindsym $mod+z exec "reboot"
-#### new bar ###
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango: FiraCode Nerd Font SemiBold 10
-	position top
-	#i3bar_command i3bar --transparency
-        height 24
-	colors {
-		background #1e1e2e
-		statusline #F8F8F2
-		separator  #44475A
+### new bar ###
+ bar {
+	     id i3bar
+		 workspace_buttons yes
+		 workspace_min_width 30
+         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	     font pango: FiraCode Nerd Font SemiBold 10
+ 	     position top
+ 	     #i3bar_command i3bar --transparency
+         height 24
+ 	     colors {
+ 		     background #1e1e2e
+ 		     statusline #F8F8F2
+ 		     separator  #44475A
 
-		focused_workspace  #FFFFFF #1e1e2e #F8F8F2
-		active_workspace   #282A36 #1e1e2e #F8F8F2
-		inactive_workspace #282A36 #1e1e2e   #BFBFBF
-		urgent_workspace   #FF5555 #1e1e2e #F8F8F2
-		binding_mode       #FF5555 #1e1e2e #F8F8F2
-	}
-}
+ 		     focused_workspace  #FFFFFF #1e1e2e #F8F8F2
+ 		     active_workspace   #282A36 #1e1e2e #F8F8F2
+ 		     inactive_workspace #282A36 #1e1e2e   #BFBFBF
+ 		     urgent_workspace   #FF5555 #1e1e2e #F8F8F2
+ 		     binding_mode       #FF5555 #1e1e2e #F8F8F2
+ 	}
+ }
 
 #polybar usage 
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh --hack 
 
 
 

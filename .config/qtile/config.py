@@ -62,6 +62,10 @@ class ExternalScriptWidget(TextBox):
     def poll(self):
         return subprocess.check_output([self.script_path]).decode("utf-8").strip()
 
+# adding the flaoting layout 
+class FloatingLayout(layout.floating.Floating):
+    pass
+
 
 # picom setup
 os.system("picom --config ~/.config/picom/picom.conf &")
@@ -170,6 +174,7 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
+    FloatingLayout(),
 ]
 
 widget_defaults = dict(
