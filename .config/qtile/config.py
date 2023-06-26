@@ -20,7 +20,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from battery_widget import BatteryWidget
-from libqtile.widget import CPUGraph , Volume , base , TextBox
+from libqtile.widget import CPUGraph, Volume, base, TextBox
 
 mod = "mod4"
 terminal = "xfce4-terminal"
@@ -30,6 +30,8 @@ terminal = "xfce4-terminal"
 #       qtile.cmd_spawn("dmenu_run -p 'Run:' -nb '#1a1a1a' -nf '#dcdccc' -sb '#8f8f8f' -sf '#dcdccc' -fn 'Monospace-14'")  # Replace with your preferred dmenu command
 
 # definiton of brigness control
+
+
 @hook.subscribe.startup_once
 def autostart():
     # ... (other autostart programs)
@@ -38,8 +40,9 @@ def autostart():
     brightnessctl_cmd = "brightnessctl s 50%"  # Adjust the value as needed
     subprocess.Popen(brightnessctl_cmd.split())
 
-# wifi status function 
-#if the wifi is connected we will get a wifi symbol 
+# wifi status function
+# if the wifi is connected we will get a wifi symbol
+
 
 def get_wifi_status():
     wifi_symbol = ""  # Use a Wi-Fi symbol of your choice
@@ -52,8 +55,10 @@ def get_wifi_status():
         else:
             return ""
 
-# battery status function 
-#including the external battery script 
+# battery status function
+# including the external battery script
+
+
 class ExternalScriptWidget(TextBox):
     def __init__(self, script_path, **config):
         super().__init__(**config)
@@ -62,14 +67,16 @@ class ExternalScriptWidget(TextBox):
     def poll(self):
         return subprocess.check_output([self.script_path]).decode("utf-8").strip()
 
-# adding the flaoting layout 
+# adding the flaoting layout
+
+
 class FloatingLayout(layout.floating.Floating):
     pass
 
 
 # picom setup
 os.system("picom --config ~/.config/picom/picom.conf &")
-#  volume controls 
+#  volume controls
 
 
 keys = [
@@ -125,8 +132,9 @@ keys = [
     # reboot
     Key([mod], "z", lazy.spawn("reboot"),
         desc="rebooting the system instantly"),
-    # running the monitor screen layout scripts 
-    Key([mod, "shift"], "s", lazy.spawn("bash /home/darkxx/.screenlayout/monitor.sh")),
+    # running the monitor screen layout scripts
+    Key([mod, "shift"], "s", lazy.spawn(
+        "bash /home/darkxx/.screenlayout/monitor.sh")),
 
 ]
 
@@ -163,17 +171,19 @@ layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2 , border_focus="#fc05ec",border_normal="#9e8d9d",border_width=2),
-    # layout.Bsp(),
+    layout.Stack(num_stacks=2, border_focus="#fc05ec",
+                 border_normal="#9e8d9d", border_width=2),
+    layout.Bsp(),
     layout.Matrix(),
-    layout.MonadTall(border_focus="#fc05ec",
-                     border_normal="#9e8d9d", border_width=2, margin=7),
-    # layout.MonadWide(),
-    # layout.RatioTile(border_focus="#fc05ec", border_normal="#9e8d9d",border_width=2),
+    layout.MonadTall(border_focus="#c30fd1",
+                     border_normal="#9e8d9d", border_width=3, margin=7),
+    layout.MonadWide(),
+    layout.RatioTile(border_focus="#fc05ec",
+                     border_normal="#9e8d9d", border_width=2),
     layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.TreeTab(),
+    layout.VerticalTile(),
+    layout.Zoomy(),
     FloatingLayout(),
 ]
 
@@ -219,7 +229,7 @@ screens = [
                 separator_widget,
                 widget.Prompt(),
                 separator_widget,
-                sep2,                                             
+                sep2,
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -231,7 +241,7 @@ screens = [
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                 sep3,
+                sep3,
                 separator_widget,
                 widget.PulseVolume(),
                 separator_widget,
@@ -242,7 +252,8 @@ screens = [
                 separator_widget,
                 CPUGraph(),
                 separator_widget,
-                ExternalScriptWidget(script_path="~/..config/i3/scripts/battery1"),
+                ExternalScriptWidget(
+                    script_path="~/..config/i3/scripts/battery1"),
                 separator_widget,
                 widget.Clock(format="%H:%M %p"),
                 separator_widget,
