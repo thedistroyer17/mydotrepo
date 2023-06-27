@@ -50,6 +50,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
+#smart_borders on
 new_window pixel 2
 
 # thin borders
@@ -58,7 +59,7 @@ new_window pixel 2
 # Set inner/outer gaps
 gaps inner 2
 gaps outer 3
-smart_gaps off
+smart_gaps on
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
