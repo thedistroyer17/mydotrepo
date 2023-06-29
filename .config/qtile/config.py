@@ -19,8 +19,9 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from battery_widget import BatteryWidget
-from libqtile.widget import CPUGraph, Volume, base, TextBox
+from libqtile.widget import CPUGraph, Volume, base, TextBox , Battery
+
+# setting up modkey and default terminal   
 
 mod = "mod4"
 terminal = "xfce4-terminal"
@@ -40,32 +41,6 @@ def autostart():
     brightnessctl_cmd = "brightnessctl s 50%"  # Adjust the value as needed
     subprocess.Popen(brightnessctl_cmd.split())
 
-# wifi status function
-# if the wifi is connected we will get a wifi symbol
-
-
-def get_wifi_status():
-    wifi_symbol = ""  # Use a Wi-Fi symbol of your choice
-    interface = "wlan0"  # Replace with your Wi-Fi interface name
-
-    # Check if the interface is connected to a network
-    with open(f"/sys/class/net/{interface}/operstate", "r") as f:
-        if f.read().strip() == "up":
-            return wifi_symbol
-        else:
-            return ""
-
-# battery status function
-# including the external battery script
-
-
-class ExternalScriptWidget(TextBox):
-    def __init__(self, script_path, **config):
-        super().__init__(**config)
-        self.script_path = script_path
-
-    def poll(self):
-        return subprocess.check_output([self.script_path]).decode("utf-8").strip()
 
 # adding the flaoting layout
 
@@ -245,8 +220,13 @@ screens = [
                 separator_widget,
                 widget.PulseVolume(),
                 separator_widget,
-                widget.TextBox(text=get_wifi_status()),
-                widget.Net(interface="wlan0"),
+                # widget.TextBox(text=get_wifi_status()),
+                widget.Net(interface="wlan0",
+                           format = "  {down} ↓↑ {up}",
+                           padding = 2 ,
+                           foreground = "#ffffff",
+                           background = "#1e1e2e",
+                           ),
                 separator_widget,
                 # DiskUsage(),
                 separator_widget,
