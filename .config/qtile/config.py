@@ -110,6 +110,7 @@ keys = [
     # running the monitor screen layout scripts
     Key([mod, "shift"], "s", lazy.spawn(
         "bash /home/darkxx/.screenlayout/monitor.sh")),
+    Key([mod, "shift"],"s",lazy.spawn("shutdown")),
 
 ]
 
