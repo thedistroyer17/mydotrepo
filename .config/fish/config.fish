@@ -17,7 +17,7 @@ figlet -f new "#darkxx"
 #echo "i use arch btw!!! >_<"
 
 #initializing the starship prompt 
-#starship init fish | source
+# starship init fish | source
 
 #git bare repository control alias 
 function dotfiles
